@@ -17,32 +17,43 @@ INSTRUCTIONS BUTTON AND PLAY AGAIN
 
 WINNING MODAL*/
 
-const motherShip = document.querySelector(".mother-ship");
-const defence = document.querySelector(".defence");
-const attack = document.querySelector(".attack");
-
-const renderShips = (shipType, numberOfShips) => {
-    for (let index = 0; index < numberOfShips; index++) {
-        if (shipType === motherShip) {
-            let totalPoints = 100;
-            shipType.innerHTML += `<div class="ship" id="${shipType}"><h5>Mother Ship</h5> <p>Points: ${totalPoints}</p></div>`
-        } else if (shipType === defence) {
-            let totalPoints = 80;
-            shipType.innerHTML += `<div class="ship" id="${shipType}"><h5>Defence Ship</h5> <p>Points: ${totalPoints}</p></div>`
-        } else if (shipType === attack) {
-            let totalPoints = 45;
-            shipType.innerHTML += `<div class="ship" id="${shipType}"><h5>Attack Ship</h5> <p>Points: ${totalPoints}</p></div>`
-        }
-    }
-}
-
-renderShips(motherShip, 1);
-renderShips(defence, 5);
-renderShips(attack, 8);
+const fireBtn = document.querySelector("#fire-btn");
+let ships = [];
 
 class Ship {
-    constructor(hitPoints, totalPoints) {
-        this.hitPoints = hitPoints;
-        this.totalPoints;
+    constructor(shipType, shipName, totalPoints, attackDamage) {
+        this.shipType = shipType;
+        this.shipName = shipName;
+        this.totalPoints = totalPoints;
+        this.attackDamage = attackDamage;
+    }
+
+    buildShip(numberOfShips) {
+        for (let index = 0; index < numberOfShips; index++) {
+            ships.push(this.shipType);
+            document.querySelector(`.${this.shipType}`).innerHTML += `<div class="ship" id="${this.shipType}${index}"><h5>${this.shipName}</h5> <p>Points: ${this.totalPoints}</p></div>`
+        }
+    }
+
+    hitShip() {
+        totalPoints -= this.hitPoints;
     }
 }
+
+const motherShip = new Ship("mothership", "Mother Ship", 100, 9);
+const defenceShip = new Ship("defence", "Defence Ship", 80, 10);
+const attackShip = new Ship("attack", "attack Ship", 45, 12);
+
+motherShip.buildShip(1);
+defenceShip.buildShip(5);
+attackShip.buildShip(8);
+
+
+const getRandomShip = () => {
+    const randomIndex = Math.floor(Math.random) * ships.length;
+    const randomShip = ships[randomIndex];
+    return randomShip;
+}
+
+
+fireBtn.addEventListener(("click"), getRandomShip);
