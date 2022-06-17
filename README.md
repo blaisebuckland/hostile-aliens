@@ -14,7 +14,7 @@ This is a battleship-like game in which the player presses a button to hit a ran
 ## Images
 <img src="https://github.com/blaisebuckland/hostile-aliens/blob/main/images/gameImg1.png" alt="game-image-1" width=600>
 <img src="https://github.com/blaisebuckland/hostile-aliens/blob/main/images/gameImg2.png" alt="game-image-2" width=600>
-<img src="https://github.com/blaisebuckland/hostile-aliens/blob/main/images/winningModal.png" alt="winning-modal-image" width=300>
+<img src="https://github.com/blaisebuckland/hostile-aliens/blob/main/images/winningModal.png" alt="winning-modal-image" width=600>
 <img src="https://github.com/blaisebuckland/hostile-aliens/blob/main/images/helpModal.png" alt="help-modal-image" width=600>
 
 ## Functionality
