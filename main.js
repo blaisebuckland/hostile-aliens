@@ -18,6 +18,7 @@ WINNING MODAL*/
 
 const fireBtn = document.querySelector("#fire-btn");
 let ships = [];
+let shipsInPlay = [];
 let randomShip = "";
 class Ship {
     constructor(shipType, shipName, totalPoints, attackDamage) {
@@ -38,6 +39,10 @@ class Ship {
         this.totalPoints -= this.attackDamage;
         if (this.totalPoints < 0) this.totalPoints = 0;
         document.querySelector(`#${this.shipType}${index}`).innerHTML = `<h5>${this.shipName}</h5> <p>Points: ${this.totalPoints}</p>`;
+        if ((this.totalPoints === 0)) {
+            document.querySelector(`#${this.shipType}${index}`).classList.add("ship--destroyed");
+            shipsInPlay.splice(index);
+        } 
     }
 }
 
@@ -57,13 +62,20 @@ const buildShips = (indexStart, shipType, shipName, totalPoints, attackDamage, n
 // defenceShip.buildShip(5);
 // attackShip.buildShip(8);
 
-buildShips(0, "mothership", "Mother Ship", 100, 50, 1);
-buildShips(1, "defence", "Defence Ship", 80, 50, 5);
-buildShips(6, "attack", "attack Ship", 45, 50, 8);
+// all hit points set to 50 for testing, change this back to correct numbers!
+const startGame = () => {
+    buildShips(0, "mothership", "Mother Ship", 100, 50, 1);
+    buildShips(1, "defence", "Defence Ship", 80, 50, 5);
+    buildShips(6, "attack", "Attack Ship", 45, 50, 8);
+    shipsInPlay = [...ships];
+}
 
+startGame();
+
+// NEED TO ADD A WAY OF NOT HITTING SHIPS ALREADY AT 0
 const getRandomIndex = () => {
     // console.log(ships.length)
-    const randomIndex = Math.floor(Math.random()* ships.length);
+    const randomIndex = Math.floor(Math.random()* shipsInPlay.length);
     // console.log(randomIndex)
     // randomShip = ships[randomIndex];
     // console.log(randomShip);
@@ -83,6 +95,7 @@ const checkPoints = () => {
 
 fireBtn.addEventListener("click", () => {
     let hitShipIndex = getRandomIndex();
-    ships[hitShipIndex].hitShip(hitShipIndex);
+    // if (ships[hitShipIndex].totalPoints === 0) hitShipIndex = getRandomIndex();
+    shipsInPlay[hitShipIndex].hitShip(hitShipIndex);
     checkPoints();
 });
