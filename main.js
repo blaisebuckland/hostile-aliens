@@ -17,10 +17,14 @@ INSTRUCTIONS BUTTON AND PLAY AGAIN
 WINNING MODAL*/
 
 const fireBtn = document.querySelector("#fire-btn");
-const winningModal = document.querySelector("#modal-container");
+const instructionsBtn = document.querySelector("#instructions-btn");
+const instructionsModal = document.querySelector("#instructions-modal-container");
 const replayBtnMain = document.querySelector("#replay-btn-main");
+const winningModal = document.querySelector("#winning-modal-container");
 const replayBtnModal = document.querySelector("#replay-btn-modal");
-const closeModalBtn = document.querySelector("#modal-close");
+const closeWinningModalBtn = document.querySelector("#winning-modal-close");
+const closeInstructionsModalBtn = document.querySelector("#instructions-modal-close");
+
 let ships = [];
 let shipsInPlay = [];
 let randomShip = "";
@@ -100,13 +104,6 @@ const checkPoints = () => {
     if (ships.every(ship => ship.totalPoints === 0)) gameOver();
 }
 
-fireBtn.addEventListener("click", () => {
-    let hitShipIndex = getRandomIndex();
-    // if (ships[hitShipIndex].totalPoints === 0) hitShipIndex = getRandomIndex();
-    shipsInPlay[hitShipIndex].hitShip(hitShipIndex);
-    checkPoints();
-});
-
  const resetGame = () => {
     winningModal.style.display = "none";
     document.querySelector(".mothership").innerHTML = "";
@@ -117,5 +114,17 @@ fireBtn.addEventListener("click", () => {
     startGame();
  }
 
+ fireBtn.addEventListener("click", () => {
+    let hitShipIndex = getRandomIndex();
+    // if (ships[hitShipIndex].totalPoints === 0) hitShipIndex = getRandomIndex();
+    shipsInPlay[hitShipIndex].hitShip(hitShipIndex);
+    checkPoints();
+});
+
+const displayInstructions = () => instructionsModal.style.display = "block";
+
 replayBtnMain.addEventListener("click", resetGame);
 replayBtnModal.addEventListener("click", resetGame);
+instructionsBtn.addEventListener("click", displayInstructions);
+closeWinningModalBtn.addEventListener("click", () => winningModal.style.display = "none");
+closeInstructionsModalBtn.addEventListener("click", () => instructionsModal.style.display = "none");

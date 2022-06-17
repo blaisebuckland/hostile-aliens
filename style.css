@@ -19,11 +19,21 @@ main {
     align-items: center;
 }
 
+.main-btns {
+    display: flex;
+    padding: 0 20%;
+    width: 60%;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+
 #replay-btn-main {
-    float: right;
+    /* text-align: end; */
+    /* float: right;
     width: 100%;
     text-align: right;
-    margin-bottom: 20px;
+    margin-bottom: 20px; */
 }
 
 h1 {
@@ -61,7 +71,7 @@ h1 {
     padding: 10px 20px;
 }
 
-#modal-container {
+.modal-container {
     display: none;
     position: fixed;
     z-index: 1;
@@ -72,7 +82,7 @@ h1 {
     background-color: rgba(0,0,0,0.4);
 }
 
-#modal-content {
+.modal-content {
     margin: 15% auto;
     display: flex;
     flex-direction: column;
@@ -85,15 +95,16 @@ h1 {
 
 }
 
-#modal-content > * {
-    margin: 8px 0;
-}
-
-#modal-close {
+.modal-close {
     padding: 8px 8px;
     float: right;
     width: 240px;
     text-align: right;
+    font-size: 20px;
+}
+
+#winning-modal-content > * {
+    margin: 8px 0;
 }
 
 #replay-btn-modal {
