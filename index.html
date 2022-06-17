@@ -5,11 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hostile Aliens</title>
-    <script async defer src="main.js"></script>
     <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/1fb64df798.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <main>
+        <i id="replay-btn-main" class="fa-solid fa-arrow-rotate-right"></i>
+        <h1>Hostile Aliens</h1>
         <div class="mothership">
         </div>
         <div class="defence">
@@ -18,6 +20,15 @@
             </div>
         </div>
         <button id="fire-btn">Fire</button>
+        <div id="modal-container">
+            <div id="modal-content">
+                <span id="modal-close">&times;</span>
+                <h2>You win!</h2>
+                <h4>Congratulations, you've destroyed the enemy ships!</h4>
+                <button id="replay-btn-modal">Play again</button>
+            </div>
+        </div>
     </main>
 </body>
+<script async defer src="main.js"></script>
 </html>
