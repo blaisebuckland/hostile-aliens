@@ -1,0 +1,26 @@
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.ship {
+    border: solid 1px slateblue;
+}
+
+.ship--defeated {
+    background-color: rgba(233, 54, 54, 0.372);
+}
+
+.defence {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.attack {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
