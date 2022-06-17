@@ -95,6 +95,10 @@ h1 {
 
 }
 
+#instructions-modal-content {
+    height: 250px;
+}
+
 .modal-close {
     padding: 8px 8px;
     float: right;
