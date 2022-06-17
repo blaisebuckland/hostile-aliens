@@ -1,4 +1,4 @@
-# hostile-aliens
+# Hostile Aliens
 This is a battleship-like game in which the player presses a button to hit a random ship in the enemy fleet. There is a mothership, five defence ships and eight attack ships. The game ends when the player has either destroyed the mothership or has destroyed all ships.
 
 ## Technologies
@@ -12,10 +12,10 @@ This is a battleship-like game in which the player presses a button to hit a ran
 * Unit testing 
 
 ## Images
-<img src="https://github.com/blaisebuckland/hostile-aliens/blob/main/images/gameImg1.png" alt="game-image-1" width=300>
-<img src="https://github.com/blaisebuckland/hostile-aliens/blob/main/images/gameImg2.png" alt="game-image-2" width=300>
+<img src="https://github.com/blaisebuckland/hostile-aliens/blob/main/images/gameImg1.png" alt="game-image-1" width=600>
+<img src="https://github.com/blaisebuckland/hostile-aliens/blob/main/images/gameImg2.png" alt="game-image-2" width=600>
 <img src="https://github.com/blaisebuckland/hostile-aliens/blob/main/images/winningModal.png" alt="winning-modal-image" width=300>
-<img src="https://github.com/blaisebuckland/hostile-aliens/blob/main/images/helpModal.png" alt="help-modal-image" width=300>
+<img src="https://github.com/blaisebuckland/hostile-aliens/blob/main/images/helpModal.png" alt="help-modal-image" width=600>
 
 ## Functionality
 * The player clicks the Fire button and a random ship is hit
