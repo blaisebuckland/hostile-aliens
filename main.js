@@ -17,6 +17,10 @@ INSTRUCTIONS BUTTON AND PLAY AGAIN
 WINNING MODAL*/
 
 const fireBtn = document.querySelector("#fire-btn");
+const winningModal = document.querySelector("#modal-container");
+const replayBtnMain = document.querySelector("#replay-btn-main");
+const replayBtnModal = document.querySelector("#replay-btn-modal");
+const closeModalBtn = document.querySelector("#modal-close");
 let ships = [];
 let shipsInPlay = [];
 let randomShip = "";
@@ -85,6 +89,9 @@ const getRandomIndex = () => {
 
 const gameOver = () => {
     console.log("GAME OVER, YOU WIN")
+    const displayWinningModal = () => winningModal.style.display = "block";
+    setTimeout(displayWinningModal, 800);
+    // winningModal.style.display = "block";
 }
 
 // do we want to win if all ships are destroyed inc the mothership, or either mothership or all others? Have done former for now
@@ -99,3 +106,16 @@ fireBtn.addEventListener("click", () => {
     shipsInPlay[hitShipIndex].hitShip(hitShipIndex);
     checkPoints();
 });
+
+ const resetGame = () => {
+    winningModal.style.display = "none";
+    document.querySelector(".mothership").innerHTML = "";
+    document.querySelector(".defence").innerHTML = "";
+    document.querySelector(".attack").innerHTML = "";
+    ships = [];
+    shipsInPlay = [];
+    startGame();
+ }
+
+replayBtnMain.addEventListener("click", resetGame);
+replayBtnModal.addEventListener("click", resetGame);
