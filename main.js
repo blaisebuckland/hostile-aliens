@@ -2,7 +2,7 @@
 
 OOP 
 
-MAKING OUR SHIPS - CLASS OF SHIP - EXTEND FOR HIT TYPE. PARAMETERS - STATRTING POINTS, LOSS INCREMENT
+MAKING OUR SHIPS - CLASS OF SHIP - EXTEND FOR SHIP TYPE. PARAMETERS - STATRTING POINTS, LOSS INCREMENT
 
 BUTTON - ON CLICK HIT A RANDOM SHIP - RANDOMISER FOR ALL SHIPS THAT WILL NOT SELECT  A SHIP AT 0 POINT ALREADY
 
@@ -10,7 +10,7 @@ WHEN HIT, DECREASE POINTS OR GAME OVER IF MOTHER SHIP
 
 UPDATE INNER HTML OF HIT SHIP
 
-GAMEOVER WHEN ALL ZERO OR MOTHER SHIP HIT 
+GAMEOVER WHEN ALL ZERO OR MOTHER SHIP DEFEATED
 
 INSTRUCTIONS BUTTON AND PLAY AGAIN
 
@@ -35,15 +35,10 @@ class Ship {
     // }
 
     hitShip(index) {
-        // console.log(this.attackDamage)
-        console.log(index)
-        console.log(this.shipType)
         this.totalPoints -= this.attackDamage;
-        this.totalPoints >= 0 ? this.totalPoints = this.totalPoints : this.totalPoints = 0;
+        if (this.totalPoints < 0) this.totalPoints = 0;
         document.querySelector(`#${this.shipType}${index}`).innerHTML = `<h5>${this.shipName}</h5> <p>Points: ${this.totalPoints}</p>`;
     }
-
-    // checkPoints() totalPoints
 }
 
 const buildShips = (indexStart, shipType, shipName, totalPoints, attackDamage, numberOfShips) => {
@@ -62,10 +57,9 @@ const buildShips = (indexStart, shipType, shipName, totalPoints, attackDamage, n
 // defenceShip.buildShip(5);
 // attackShip.buildShip(8);
 
-buildShips(0, "mothership", "Mother Ship", 100, 9, 1);
-buildShips(1, "defence", "Defence Ship", 80, 10, 5);
-buildShips(6, "attack", "attack Ship", 45, 12, 8);
-console.log(ships)
+buildShips(0, "mothership", "Mother Ship", 100, 50, 1);
+buildShips(1, "defence", "Defence Ship", 80, 50, 5);
+buildShips(6, "attack", "attack Ship", 45, 50, 8);
 
 const getRandomIndex = () => {
     // console.log(ships.length)
@@ -77,11 +71,18 @@ const getRandomIndex = () => {
     
 }
 
+const gameOver = () => {
+    console.log("GAME OVER, YOU WIN")
+}
+
+// do we want to win if all ships are destroyed inc the mothership, or either mothership or all others? Have done former for now
+const checkPoints = () => {
+    if (ships[0].totalPoints === 0) gameOver();
+    if (ships.every(ship => ship.totalPoints === 0)) gameOver();
+}
+
 fireBtn.addEventListener("click", () => {
-    // console.log(getRandomShip())
     let hitShipIndex = getRandomIndex();
-    console.log(hitShipIndex)
     ships[hitShipIndex].hitShip(hitShipIndex);
-    // getRandomShip().hitShip();
+    checkPoints();
 });
-console.log(ships)
