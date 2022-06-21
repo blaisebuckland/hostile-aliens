@@ -1,11 +1,12 @@
 # Hostile Aliens
-This is a battleship-like game in which the player presses a button to hit a random ship in the enemy fleet. There is a mothership, five defence ships and eight attack ships. The game ends when the player has either destroyed the mothership or has destroyed all ships.
+This is a battleship-like game in which the player presses a button to hit a random ship in the enemy fleet. There is a mothership, five defence ships and eight attack ships. The game ends when the player has either destroyed the mothership or has destroyed all ships. It was built using an OOP appraoch and was unit tested using Jest.
 
 ## Technologies
 * JavaScript
 * HTML
 * CSS
 * Git & GitHub
+* Jest
 
 ## Skills
 * OOP
