@@ -1,4 +1,4 @@
-import {Ship} from "./ship-class.js"
+import {Ship, getRandomIndex} from "./ship-class.js"
 
 // Query Selectors
 const mothershipSection = document.querySelector(".mothership");
@@ -34,11 +34,6 @@ const startGame = () => {
 
 startGame();
 
-const getRandomIndex = () => {
-    const randomIndex = Math.floor(Math.random()* shipsInPlay.length);
-    return randomIndex;
-}
-
 const displayNewPoints = (index, currentShip) => {
     document.querySelector(`#${currentShip.shipType}${index}`).innerHTML = `<h4>${currentShip.shipName}</h4> <p>Points: ${currentShip.totalPoints}</p>`
 }
@@ -60,7 +55,7 @@ const checkPoints = () => {
 }
 
 const fireAtShip = () => {
-    let hitShipIndex = getRandomIndex();
+    let hitShipIndex = getRandomIndex(shipsInPlay);
     let currentShip = shipsInPlay[hitShipIndex]
     currentShip.reducePoints();
     if (currentShip.totalPoints === 0) {

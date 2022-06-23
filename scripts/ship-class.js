@@ -13,3 +13,8 @@ export class Ship {
         }
     }
 }
+
+export const getRandomIndex = (ships) => {
+    const randomIndex = Math.floor(Math.random()* ships.length);
+    return randomIndex;
+}
