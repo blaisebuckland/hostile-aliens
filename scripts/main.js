@@ -1,4 +1,4 @@
-import {Ship, getRandomIndex} from "./ship-class.js"
+import {Ship, getRandomIndex} from "./functions.js"
 
 // Query Selectors
 const mothershipSection = document.querySelector(".mothership");

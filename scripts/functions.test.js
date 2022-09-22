@@ -1,4 +1,4 @@
-import {Ship, getRandomIndex} from "./ship-class.js"
+import {Ship, getRandomIndex} from "./functions.js"
 
 const mothership = new Ship ("mothership", "Mother Ship", 100, 9);
 const defenceShip = new Ship ("defence", "Defence Ship", 80, 10);
